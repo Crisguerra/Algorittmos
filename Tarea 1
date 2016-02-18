@@ -1,0 +1,103 @@
+#include <iostream>
+#include "conio.h"
+using namespace std;
+void contar_digitos(int a){
+    int s=0;
+while (a>0){
+    a=a/10;
+    s++;
+    }
+    cout<<"El numero tiene "<<s<<" digitos\n"<<endl;
+    getch();
+}
+void sumar_digitos(int a){
+int s=0,d;
+while(a>0){
+    d=a%10;
+    s=s+d;
+    a=a/10;
+}
+cout<<"La suma de los digitos del numero es "<<s<<"\n\n";
+getch();
+}
+void sumar_digitos_impares(int a){
+int s=0,d;
+while(a>0){
+    d=a%10;
+    if((d%2)!=0){
+    s=s+d;
+    }
+    a=a/10;
+}
+cout<<"La suma de los digitos impares del numero es "<<s<<"\n\n";
+getch();
+}
+void invertir_numero(int a){
+    int b,c=0;
+    while(a>0){
+    b=a%10;
+    c=c*10+b;
+    a=a/10;
+    }
+    cout<<"El numero invertido es "<<c<<"\n\n";
+    getch();
+
+}
+void digitos_impares(int a){
+int b,c=0,d=0;
+    while(a>0){
+    b=a%10;
+	if(b%2!=0){
+    c=c*10+b;
+	}
+    a=a/10;
+    }
+	while(c>0){
+	b=c%10;
+	d=d*10+b;
+	c=c/10;
+	}
+    cout<<"Los digitos impares del numero son "<<d<<endl;
+    getch();
+
+}
+void main (){
+    int a,opcion;
+    cout<<"Introduzca un numero: "<<endl;
+    cin>>a;
+    if(a<1){
+        while(a<1){
+    cout<<"El numero es menor a 1, porfavor introduzca un numero mayor o igual a 1"<<endl;
+    cin>>a;
+    cout<<"\n\n";
+        }
+    }
+    do{
+    cout<<"Que desea hacer con el numero?"<<endl;
+    cout<<"1.-Contar los digitos"<<endl;
+    cout<<"2.-Sumar los digitos"<<endl;
+    cout<<"3.-Sumar los digitos impares"<<endl;
+    cout<<"4.-Invertir el numero"<<endl;
+    cout<<"5.-Solo los digitos impares"<<endl;
+    cout<<"0.- Salir"<<endl;
+    cin>>opcion;
+    switch(opcion){
+        case 1 :
+            contar_digitos(a);
+            break ;
+        case 2 :
+            sumar_digitos(a);
+            break ;
+        case 3 :
+            sumar_digitos_impares(a);
+            break ;
+        case 4 : 
+            invertir_numero(a);
+            break;
+        case 5: 
+            digitos_impares(a);
+            break;
+    }
+    }while (opcion!=0);
+    getch();
+}
